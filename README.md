@@ -1,6 +1,8 @@
 Homebrew-science
 ================
 
+*switched out opencv versions*
+
 [![For science.](http://i.imgur.com/Bswp1.png) ](http://xkcd.com/585)
 
 These formulae provide software tailored to scientific endeavors. Need to store
