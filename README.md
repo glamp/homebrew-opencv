@@ -2,6 +2,9 @@ Homebrew-science
 ================
 
 *switched out opencv versions*
+```bash
+$ brew install https://raw2.github.com/glamp/homebrew-science/master/opencv.rb
+```
 
 [![For science.](http://i.imgur.com/Bswp1.png) ](http://xkcd.com/585)
 
