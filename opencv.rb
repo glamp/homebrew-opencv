@@ -2,15 +2,15 @@ require 'formula'
 
 class Opencv < Formula
   homepage 'http://opencv.org/'
-  url 'https://github.com/Itseez/opencv/archive/2.4.7.1.tar.gz'
-  sha1 'b6b0dd72356822a482ca3a27a7a88145aca6f34c'
+  url 'http://downloads.sourceforge.net/project/opencvlibrary/opencv-unix/2.4.3/OpenCV-2.4.3.tar.bz2'
+  sha1 '982be2c3e52dfc3e9d14692c60bc856b2b766be2'
 
   option '32-bit'
   option 'with-qt',  'Build the Qt4 backend to HighGUI'
   option 'with-tbb', 'Enable parallel code in OpenCV using Intel TBB'
   option 'without-opencl', 'Disable gpu code in OpenCV using OpenCL'
 
-  option :cxx11
+  # option :cxx11
 
   depends_on 'cmake' => :build
   depends_on 'pkg-config' => :build
@@ -35,7 +35,7 @@ class Opencv < Formula
   end
 
   def install
-    ENV.cxx11 if build.cxx11?
+    #ENV.cxx11 if build.cxx11?
 
     args = std_cmake_args + %W[
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
@@ -63,7 +63,7 @@ class Opencv < Formula
     args << '-DWITH_FFMPEG=OFF' unless build.with? 'ffmpeg'
 
     if ENV.compiler == :clang and !build.bottle?
-      args << '-DENABLE_SSSE3=ON' if Hardware::CPU.ssse3?
+      # args << '-DENABLE_SSSE3=ON' if Hardware::CPU.ssse3?
       args << '-DENABLE_SSE41=ON' if Hardware::CPU.sse4?
       args << '-DENABLE_SSE42=ON' if Hardware::CPU.sse4_2?
       args << '-DENABLE_AVX=ON' if Hardware::CPU.avx?
